@@ -1,0 +1,109 @@
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="{{url_for('static', filename = 'canvas2image.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename = 'html2canvas.min.js') }}"></script>
+<style>
+    #container {
+      width: 90%;
+      margin: auto;
+    }
+    #window_btns {
+      padding-top: 10px;
+      padding-bottom: 10px
+    }
+    .window_btn {
+      margin-right: 5px;
+    }
+    #room {
+      border: 2px solid #eb7f65;
+      resize: both;
+      width: 300px;
+      height: 200px;
+      overflow: auto;
+      background-color: #fff7e0;
+    }
+    .Hwindow {
+      background-color: lightblue;
+      border: none;
+      width: 170px;
+      height: 20px;
+      display: inline-block;
+      margin: 3px;
+    }
+    .Vwindow {
+      background-color: lightblue;
+      border: none;
+      width: 20;
+      height: 170;
+      display: inline-block;
+      margin: 3px;
+    }
+    .Hwindow:hover, .Vwindow:hover {
+      cursor: move
+    }
+    .icon, .buy {
+      border: 2px solid #a3b995;
+      border-radius: 4px;
+      margin: 5px;
+    }
+    .buy:hover {
+      cursor: auto;
+    }
+    #plants {
+      margin-bottom: 10px
+    }
+    #wish {
+      background-color: white;
+      border-radius: 10px;
+    }
+    #shop {
+      margin-right: 5px;
+    }
+    #info {
+      position: absolute;
+      left: 830px;
+      top: 190px;
+      width: 33%;
+      height: auto;
+      padding: 10px;
+    }
+</style>
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <div id="container">
+      <h2 style="color: white;"> click & drag the bottom right corner to adjust your room size. </h2>
+      <h2 style="color: white; display: inline-block"> then, add movable windows & drag plants from your wishlist into your room. <br /> to remove a plant from your room, put it back in the wishlist.</h2>
+
+      <div id="window_btns" >
+        <button class="btn window_btn">horizontal window</button>
+        <button class="btn window_btn">vertical window</button>
+      </div>
+      <h3 class="finished" style="color: white; display: none"> desired number of plants reached! </h3>
+      <div id="room" style="display: inline-block;"> </div>
+
+      <div id="info">
+        <h4 style="color: #fff7e0; margin-left: 10px"> desired # of plants: {{desired}}</h4>
+        <div id="wish">
+          <h4 style="color: #eb7f65; margin-left: 10px"> wishlist: </h4>
+          <div id="plants"></div>
+          <table id="table" style="width: 100%">
+            <tbody>
+              <tr>
+                  <th>plant</th>
+                  <th>sunlight lvl</th>
+                  <th>location</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- <button id="shop" class="btn"> get shopping list</button>
+        <button class="btn" onclick="printDiv('room_list')"> print shopping list</button>
+        <div id="room_list"></div> -->
+      </div>
+    </div>
+
+{% endblock %}

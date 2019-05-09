@@ -1,0 +1,128 @@
+<html>
+<head>
+  <!--bootstrap-->
+  <link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <!--JQuery-->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- my scripts -->
+  <script type="text/javascript" src="{{url_for('static', filename = 'search.js') }}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename = 'start.js') }}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename = 'floorplan.js') }}"></script>
+  <script>
+      var wishlist = {{wishlist|tojson}}
+      var total = {{total|tojson}}
+      var desired = {{desired|tojson}}
+      var room = {{room|tojson}}
+      var data = {{data|tojson}}
+  </script>
+
+  <style>
+    .container-fluid {
+      margin-top: 20px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #a3b995;
+      font-family: Arial;
+    }
+    .row {
+      margin: 8px -16px;
+    }
+    .row,
+    .row > .column {
+      padding: 8px;
+    }
+    .column {
+      float: left;
+      width: 20%;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .content {
+      background-color: #f7e6d0;
+      padding: 10px;
+    }
+    h4 {
+      padding-top: 10px;
+      color: #eb7f65;
+    }
+    .show {
+      display: block;
+    }
+    .btn {
+      border: none;
+      outline: none;
+      background-color: white;
+      cursor: pointer;
+      color: #eb7f65;
+    }
+    .btn:hover {
+      background-color: #fff7e0;
+      color: #eb7f65;
+    }
+    .btn.active {
+      background-color: #666;
+      color: white;
+    }
+    .add_btn {
+      border: none;
+      outline: none;
+      background-color: white;
+      cursor: pointer;
+      color: #eb7f65;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .add_btn:hover {
+      color: #a3b995;
+    }
+    .add_btn.active {
+      color: #a3b995;
+    }
+    .delete {
+      border: none;
+      outline: none;
+      background-color: white;
+      cursor: pointer;
+      color: #eb7f65;
+      display: none;
+    }
+    .delete.show {
+      display: inline-block;
+    }
+    img:hover {
+      cursor: pointer;
+    }
+    .icon:hover {
+      cursor: move;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/start">plan-ter</a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/search">search</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/floorplan">my plan(ts)</a>
+    </li>
+  </ul>
+</nav>
+
+  <div class="container-fluid">
+      {% block content %}
+
+      {% endblock %}
+  </div>
+</body>
+</html>

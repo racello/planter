@@ -1,0 +1,29 @@
+<style>
+    #next {
+      position: absolute;
+      top: 75px;
+      left: 740px;
+      display: none;
+    }
+    #next.show {
+      display: block;
+    }
+</style>
+
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2 style="color: white">which plants do you want? <span style="color: #fff7e0">desired: {{desired}} | wishlist: <span id="totally"> </span></span></h2>
+
+  <div id="filters">
+    <button class="btn active" onclick="display_items(data, '')"> show all </button>
+    <button class="btn" onclick="display_items(data, 'cacti')"> cacti </button>
+    <button class="btn" onclick="display_items(data, 'flowering')"> flowering </button>
+    <button class="btn" onclick="display_items(data, 'ivy')"> ivy </button>
+
+    <span style="color: white; margin-left: 10px;">click on a plant to learn more about it!</span>
+    <button class="btn" id="next"> next step</button>
+  </div>
+  <!-- photo catalog -->
+  <div id="items"></div>
+{% endblock %}

@@ -1,0 +1,75 @@
+<style>
+    #welcome {
+      margin: auto;
+      width: 70%;
+      color: white;
+      position: relative
+    }
+    #greeting {
+      position: absolute;
+      top: 90px;
+      left: 330px;
+      z-index: 110;
+      color: #fff7e0;
+    }
+    #mid {
+      position: absolute;
+      z-index: 110;
+      top: 210px;
+      left: 430px;
+    }
+    #bottom {
+      position: absolute;
+      z-index: 110;
+      top: 400px;
+      left: 330px;
+    }
+    #confirm {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-top: -20px;
+      margin-left: 5px;
+    }
+    .keyword {
+      color: #fff7e0;
+    }
+    #leaf {
+      position: fixed;
+      top: 30px;
+      left: 250px;
+      z-index: 100;
+      transform: rotate(30deg)
+    }
+    #leaf:hover {
+      cursor: auto;
+    }
+</style>
+
+{% extends "layout.html" %}
+
+{% block content %}
+  <div id="welcome">
+    <h1 id="greeting">welcome to plan-ter!</h1>
+
+    <img src="https://bit.ly/2Y9GwLY" id="leaf"/>
+
+    <div id="mid">
+        <h2> here, you can:
+            <ol>
+                <li>
+                  pick out the <span class="keyword">plants</span> you want
+                </li>
+                <li>
+                    <span class="keyword">plan</span> how they'd look in your room
+                </li>
+            </ol>
+        </h2>
+    </div>
+
+    <div id="bottom">
+      <h2> how many plants do you want?</h2>
+      <textarea id="desired" rows="1" cols="5"></textarea>
+      <button id="confirm" type="button" class="btn"> i want this many! </button>
+    </div>
+  </div>
+{% endblock %}

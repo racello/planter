@@ -1,0 +1,35 @@
+<!--JQuery-->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- my scripts -->
+<script type="text/javascript" src="{{url_for('static', filename = 'item.js') }}"></script>
+<script>
+    var item_id = {{item_id|tojson}}
+</script>
+
+<style>
+  #container {
+    width: 90%;
+    margin: auto;
+  }
+  #info {
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+</style>
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="container">
+  <button class="btn" id="back"> back</button>
+  <h2 id="name" style="color:white"></h2>
+  <div id="picture"></div>
+  <div id="info"></div>
+</div>
+
+{% endblock %}
