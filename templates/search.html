@@ -1,3 +1,10 @@
+<!--JQuery-->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- my scripts -->
+<script type="text/javascript" src="{{url_for('static', filename = 'search.js') }}"></script>
+
 <style>
     #next {
       position: absolute;
@@ -17,9 +24,10 @@
 
   <div id="filters">
     <button class="btn active" onclick="display_items(data, '')"> show all </button>
-    <button class="btn" onclick="display_items(data, 'cacti')"> cacti </button>
+    <button class="btn" onclick="display_items(data, 'cacti')"> succulent </button>
     <button class="btn" onclick="display_items(data, 'flowering')"> flowering </button>
     <button class="btn" onclick="display_items(data, 'ivy')"> ivy </button>
+    <button class="btn" onclick="display_items(data, 'tree')"> tree </button>
 
     <span style="color: white; margin-left: 10px;">click on a plant to learn more about it!</span>
     <button class="btn" id="next"> next step</button>

@@ -13,11 +13,23 @@
     width: 90%;
     margin: auto;
   }
+  #name {
+    margin-top: 20px;
+  }
   #info {
     color: white;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin: 30 0 50 30;
     font-size: 20px;
+  }
+  #summary {
+    color: #eb7f65;
+    background-color: #fff7e0;
+    padding: 5px;
+    width: 45%;
+    font-size: 20px;
+    margin-left: 30px;
+    text-align: center;
+    border: 2px solid #eb7f65;
   }
 </style>
 
@@ -28,8 +40,13 @@
 <div id="container">
   <button class="btn" id="back"> back</button>
   <h2 id="name" style="color:white"></h2>
-  <div id="picture"></div>
-  <div id="info"></div>
+  <div class="row">
+    <div id="picture"></div>
+    <div class="column" style="width: 60%">
+      <div id="summary"></div>
+      <div id="info"></div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

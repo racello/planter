@@ -8,18 +8,25 @@
       width: 90%;
       margin: auto;
     }
+    #instructions {
+      margin: 30px;
+      width: 80%
+    }
     #window_btns {
       padding-top: 10px;
-      padding-bottom: 10px
+      padding-bottom: 10px;
     }
     .window_btn {
       margin-right: 5px;
     }
+    #compass {
+      display: inline-block;
+      width: 100px;
+    }
     #room {
       border: 2px solid #eb7f65;
-      resize: both;
-      width: 300px;
-      height: 200px;
+      width: 500px;
+      height: 350px;
       overflow: auto;
       background-color: #fff7e0;
     }
@@ -50,9 +57,6 @@
     .buy:hover {
       cursor: auto;
     }
-    #plants {
-      margin-bottom: 10px
-    }
     #wish {
       background-color: white;
       border-radius: 10px;
@@ -60,13 +64,38 @@
     #shop {
       margin-right: 5px;
     }
+    #organize {
+      display: inline-block;
+    }
     #info {
-      position: absolute;
-      left: 830px;
-      top: 190px;
-      width: 33%;
+      display: inline-block;
+      width: 40%;
       height: auto;
-      padding: 10px;
+      padding-right: 20px;
+    }
+    table {
+      width: 90%;
+      margin: auto;
+      margin-bottom: 15px;
+    }
+    th, td {
+      color: #a3b995;
+    }
+    th {
+      border-bottom: 2px solid #a3b995;
+      padding-bottom: 7px;
+    }
+    .cream {
+      color: #fff7e0;
+      font-size: 20px;
+    }
+    #happy {
+      color: #eb7f65;
+      margin-left: 30px;
+      display: none;
+    }
+    #happy.show {
+      display: inline-block;
     }
 </style>
 
@@ -74,35 +103,46 @@
 
 {% block content %}
     <div id="container">
-      <h2 style="color: white;"> click & drag the bottom right corner to adjust your room size. </h2>
-      <h2 style="color: white; display: inline-block"> then, add movable windows & drag plants from your wishlist into your room. <br /> to remove a plant from your room, put it back in the wishlist.</h2>
+      <h2 id="instructions" style="color: white;">
+        <ol>
+            <li>enter your room's dimensions and add windows</li>
+            <li>drag plants from your wishlist into your room to an appropriate distance from the closest window</li>
+            <li>to remove a plant from your room, drag it back to the wishlist</li>
+        </ol>
+      </h2>
 
-      <div id="window_btns" >
-        <button class="btn window_btn">horizontal window</button>
-        <button class="btn window_btn">vertical window</button>
-      </div>
-      <h3 class="finished" style="color: white; display: none"> desired number of plants reached! </h3>
-      <div id="room" style="display: inline-block;"> </div>
-
-      <div id="info">
-        <h4 style="color: #fff7e0; margin-left: 10px"> desired # of plants: {{desired}}</h4>
-        <div id="wish">
-          <h4 style="color: #eb7f65; margin-left: 10px"> wishlist: </h4>
-          <div id="plants"></div>
-          <table id="table" style="width: 100%">
-            <tbody>
-              <tr>
-                  <th>plant</th>
-                  <th>sunlight lvl</th>
-                  <th>location</th>
-              </tr>
-            </tbody>
-          </table>
+      <div class="row">
+        <div id="info">
+          <h4 style="color: #fff7e0; margin-left: 10px"> desired # of plants: {{desired}} </h4>
+          <div id="wish">
+            <h4 style="color: #eb7f65; margin-left: 10px"> wishlist ({{total}}) <span id="happy"> ~ all plants are happy! ~</span></h4>
+            <table id="table">
+              <tbody>
+                <tr>
+                    <th>plant</th>
+                    <th>name</th>
+                    <th>sunlight needs</th>
+                    <th>location</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <!-- <button id="shop" class="btn"> get shopping list</button>
-        <button class="btn" onclick="printDiv('room_list')"> print shopping list</button>
-        <div id="room_list"></div> -->
+        <div id="organize">
+          <!-- manually enter room dimensions -->
+            <span class="cream">room dimensions:</span> <input type="text" id="width" style="width: 35px"></input>
+            <span class="cream">by</span> <input type="text" id="height" style="width: 35px"></input> <span class="cream">feet</span>
+            <button id="submit" class="btn" style="margin-left: 10px"> submit </button>
+          <div id="window_btns" >
+            <span class="cream">add windows: </span>
+            <button class="btn window_btn">horizontal window</button>
+            <button class="btn window_btn">vertical window</button>
+          </div>
+
+          <h3 class="finished" style="color: white; display: none"> desired number of plants reached! </h3>
+          <div id="room" style="display: inline-block;"> </div>
+        </div>
       </div>
     </div>
 

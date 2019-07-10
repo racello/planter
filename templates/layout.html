@@ -8,7 +8,6 @@
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <!-- my scripts -->
-  <script type="text/javascript" src="{{url_for('static', filename = 'search.js') }}"></script>
   <script type="text/javascript" src="{{url_for('static', filename = 'start.js') }}"></script>
   <script type="text/javascript" src="{{url_for('static', filename = 'floorplan.js') }}"></script>
   <script>
@@ -17,6 +16,7 @@
       var desired = {{desired|tojson}}
       var room = {{room|tojson}}
       var data = {{data|tojson}}
+      var windows = {{windows|tojson}}
   </script>
 
   <style>

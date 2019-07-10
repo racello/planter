@@ -35,7 +35,7 @@ $(document).ready(function() {
       window.location.href = 'search';
     }
   })
-  
+
   //hit enter in textarea
   $('#desired').keypress(function(e) {
     if (e.which == 13) {
@@ -55,5 +55,4 @@ $(document).ready(function() {
       return false;
     }
   })
-
 })

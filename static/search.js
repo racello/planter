@@ -92,7 +92,6 @@ var delete_wishlist = function(id) {
 }
 
 $(document).ready(function() {
-  // filterSelection("all");
   display_items(data, "");
 
   $('#totally').html(total);
